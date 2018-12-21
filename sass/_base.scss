@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition-duration: .2s; 
+}
+
+$borderWidth: 3px;
+
+.hidden{display: none;}
+.main-container{
+    background-color: $color-white;
+    font-family: $font-ubuntu;
+    color: $color-light;
+    height: 100vh;
+    header{
+        
+        background-color: $color-black;
+
+        .header-container{
+            
+            .header-text{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100px;
+            }
+        }
+    }
+
+    .form-container{
+        width: 100%; 
+        background-color: $color-black;
+        padding: 1rem 0;
+        form{
+            
+            border-radius: 5px;
+            background-color: $color-light;
+            display: flex;
+            flex-direction: column;
+            justify-items: flex-start;
+            width: 90%;
+            margin: 0 auto;
+
+            @media screen and (min-width: 500px) {
+                width: calc(100vh);
+            }
+            .radio-btns{
+                display: flex;
+                flex-flow: row wrap;
+                
+                
+                #radioHour{
+                    @include activeLink();
+                }
+
+                
+                label{
+                    color: $color-white;
+                    font-size: 2rem;
+                    width: 100%;
+                    text-align: center;
+                    @media screen and (min-width: 400px) {
+                        width: 50%;
+                    }
+                }
+
+                
+                
+
+            }
+
+            .textInputs{
+                
+                padding: 1rem 0;
+
+                display: flex;
+                flex-flow: column wrap;
+                input, button{
+                    margin: 0.4rem;
+                    padding: 0.4rem;
+                    font-family: $font-ubuntu;
+                    border: 1px $color-light solid;
+                    border-radius: 3px;
+                    width: 90%;
+                    margin: 0.4rem auto;
+                    border: $borderWidth transparent solid;
+                }
+                input:focus{
+                    border: $borderWidth $color-green solid;
+                    outline: none;
+                }
+
+                button {
+                    font-family: $font-ubuntu;
+                    font-size: 1.4rem;
+                    width: 50%;
+                    &:hover{
+                    cursor: pointer;
+                    border: $borderWidth $color-green solid;
+                    outline: none;
+                }
+                }
+                
+
+                
+            }
+
+
+
+            #radioMonth:checked ~ .textInputs .hourRemove{
+                display: none;
+                opacity: 0;
+                transition: visibility 0s, opacity 0.5s linear;
+            }
+            #radioHour:checked ~ .textInputs #salary{
+                display: none;
+                opacity: 0;
+                transition: visibility 0s, opacity 0.5s linear;
+            }
+            #radioHour:checked ~ .radio-btns #labelMonth {
+                @include activeLink();
+            }   
+            #radioMonth:checked ~ .radio-btns #labelHour {
+                @include activeLink();
+            }
+        }
+    }
+    footer{
+        background-color: $color-white;
+        .footer-container{
+
+            &__links{
+                
+            }
+        }
+    }
+}
+
+.result-container{
+    height: 100vh;
+    background-color: $color-white;
+    .grid-container{
+
+    }
+}

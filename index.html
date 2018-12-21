@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#101113">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lön</title>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="header-container">
+                <div class="header-text">
+                    <h1>Lönekalkylator</h1>
+                </div>
+            </div>
+        </header>
+
+        <div class="form-container">
+            <form>
+                <input type="radio" checked name="radio" id="radioHour" class="hidden">
+                <input type="radio" name="radio" id="radioMonth" class="hidden">
+
+                <div class="radio-btns">
+                    <label for="radioMonth" id="labelMonth">Månadslön</label>
+                    
+                    <label for="radioHour" id="labelHour">Timlön</label>
+                    
+                </div>
+                <div class="textInputs">
+                    
+
+                    <input type="number" min="0" id="salary" placeholder="Månadslön">
+                    <input type="number" min="0" id="hourSalary" placeholder="Timlön" class="hourRemove">
+                    <input type="number" min="0" id="amountHour" placeholder="Antal Timmar" class="hourRemove">
+                    <input type="text" id="firstName" placeholder="Förnamn">
+                    <input type="text" id="lastName" placeholder="Efternamn">
+                    <input type="number" id="idNum" placeholder="Anställnings ID">
+                    <input type="date" id="date" min="2018" placeholder="Datum">
+                    <button type="button" id="submit">Gå vidare</button>
+                </div>
+            </form>
+        </div>
+
+      
+        
+
+
+    </div>
+    <div class="result-container">
+        <div class="grid-container">
+            
+        </div>
+    </div>
+    <footer>
+            <div class="footer-container">
+                <div class="footer-container__links">
+                    <li><a href="download/lonekalkylator.exe" download>Ladda ner offline-version (Kan behöva avaktivera antivirus för att köra)</a></li>
+                </div>
+            </div>
+        </footer>
+    <script src="javascript/app.js"></script>
+</body>
+</html>

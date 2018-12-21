@@ -1,0 +1,101 @@
+/* Coolors Exported Palette - coolors.co/56d73d-0b4f6c-01baef-fbfbff-757575 */
+/* HSL */
+/* RGB */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab|Ubuntu:300,400,500");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition-duration: .2s; }
+
+.hidden {
+  display: none; }
+
+.main-container {
+  background-color: #ebebeb;
+  font-family: "Ubuntu", sans-serif;
+  color: #09708a;
+  height: 100vh; }
+  .main-container header {
+    background-color: #101113; }
+    .main-container header .header-container .header-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px; }
+  .main-container .form-container {
+    width: 100%;
+    background-color: #101113;
+    padding: 1rem 0; }
+    .main-container .form-container form {
+      border-radius: 5px;
+      background-color: #09708a;
+      display: flex;
+      flex-direction: column;
+      justify-items: flex-start;
+      width: 90%;
+      margin: 0 auto; }
+      @media screen and (min-width: 500px) {
+        .main-container .form-container form {
+          width: calc(100vh); } }
+      .main-container .form-container form .radio-btns {
+        display: flex;
+        flex-flow: row wrap; }
+        .main-container .form-container form .radio-btns #radioHour {
+          background-color: #ebebeb;
+          color: #3b444b;
+          border-radius: 3px; }
+        .main-container .form-container form .radio-btns label {
+          color: #ebebeb;
+          font-size: 2rem;
+          width: 100%;
+          text-align: center; }
+          @media screen and (min-width: 400px) {
+            .main-container .form-container form .radio-btns label {
+              width: 50%; } }
+      .main-container .form-container form .textInputs {
+        padding: 1rem 0;
+        display: flex;
+        flex-flow: column wrap; }
+        .main-container .form-container form .textInputs input, .main-container .form-container form .textInputs button {
+          margin: 0.4rem;
+          padding: 0.4rem;
+          font-family: "Ubuntu", sans-serif;
+          border: 1px #09708a solid;
+          border-radius: 3px;
+          width: 90%;
+          margin: 0.4rem auto;
+          border: 3px transparent solid; }
+        .main-container .form-container form .textInputs input:focus {
+          border: 3px #3f3f3f solid;
+          outline: none; }
+        .main-container .form-container form .textInputs button {
+          font-family: "Ubuntu", sans-serif;
+          font-size: 1.4rem;
+          width: 50%; }
+          .main-container .form-container form .textInputs button:hover {
+            cursor: pointer;
+            border: 3px #3f3f3f solid;
+            outline: none; }
+      .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove {
+        display: none;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear; }
+      .main-container .form-container form #radioHour:checked ~ .textInputs #salary {
+        display: none;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear; }
+      .main-container .form-container form #radioHour:checked ~ .radio-btns #labelMonth {
+        background-color: #ebebeb;
+        color: #3b444b;
+        border-radius: 3px; }
+      .main-container .form-container form #radioMonth:checked ~ .radio-btns #labelHour {
+        background-color: #ebebeb;
+        color: #3b444b;
+        border-radius: 3px; }
+  .main-container footer {
+    background-color: #ebebeb; }
+
+.result-container {
+  height: 100vh;
+  background-color: #ebebeb; }

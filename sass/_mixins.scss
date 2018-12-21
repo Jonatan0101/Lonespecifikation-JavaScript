@@ -1,0 +1,5 @@
+@mixin activeLink {
+    background-color: $color-white;
+    color: $color-main;
+    border-radius: 3px;
+}
