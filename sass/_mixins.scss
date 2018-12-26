@@ -3,3 +3,17 @@
     color: $color-main;
     border-radius: 3px;
 }
+
+@mixin hideInput {
+    opacity: 0.2;
+    transition: visibility 0s, opacity 0.1s linear;
+    &:hover{
+        cursor: not-allowed;
+    }
+}
+@mixin form{
+    width: 90%;
+    padding: 0.4rem;
+    margin: 0.4rem auto;
+    font-family: $font-ubuntu;
+}

@@ -5,6 +5,7 @@
     transition-duration: .2s; 
 }
 
+
 $borderWidth: 3px;
 
 .hidden{display: none;}
@@ -12,7 +13,7 @@ $borderWidth: 3px;
     background-color: $color-white;
     font-family: $font-ubuntu;
     color: $color-light;
-    height: 100vh;
+
     header{
         
         background-color: $color-black;
@@ -76,15 +77,22 @@ $borderWidth: 3px;
 
                 display: flex;
                 flex-flow: column wrap;
-                input, button{
-                    margin: 0.4rem;
-                    padding: 0.4rem;
-                    font-family: $font-ubuntu;
-                    border: 1px $color-light solid;
-                    border-radius: 3px;
-                    width: 90%;
-                    margin: 0.4rem auto;
+                label{
+                    color: $color-white;
+                    text-align: center;
+                    @include form();
+                }
+                input, button, select{
                     border: $borderWidth transparent solid;
+                    border-radius: 3px;
+
+                    @include form();
+
+                    option{
+                        &:hover{
+                            background-color: $color-main;
+                        }
+                    }
                 }
                 input:focus{
                     border: $borderWidth $color-green solid;
@@ -96,9 +104,9 @@ $borderWidth: 3px;
                     font-size: 1.4rem;
                     width: 50%;
                     &:hover{
-                    cursor: pointer;
-                    border: $borderWidth $color-green solid;
-                    outline: none;
+                        cursor: pointer;
+                        border: $borderWidth $color-green solid;
+                        outline: none;
                 }
                 }
                 
@@ -109,14 +117,10 @@ $borderWidth: 3px;
 
 
             #radioMonth:checked ~ .textInputs .hourRemove{
-                display: none;
-                opacity: 0;
-                transition: visibility 0s, opacity 0.5s linear;
+                @include hideInput();
             }
             #radioHour:checked ~ .textInputs #salary{
-                display: none;
-                opacity: 0;
-                transition: visibility 0s, opacity 0.5s linear;
+                @include hideInput();
             }
             #radioHour:checked ~ .radio-btns #labelMonth {
                 @include activeLink();
@@ -128,6 +132,7 @@ $borderWidth: 3px;
     }
     footer{
         background-color: $color-white;
+        
         .footer-container{
 
             &__links{
@@ -140,7 +145,61 @@ $borderWidth: 3px;
 .result-container{
     height: 100vh;
     background-color: $color-white;
+    padding: 3rem;
     .grid-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+        @media screen and (min-width:500px) {
+            width: 400px;
+            height: 600px;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 10px 10px 35px -9px rgba(0,0,0,0.55);
+        }
+        .top-section{
+            
+            &__title{
+                h2{
+                    font-size: $font-size-medium;
+                    text-align: center;
+                    margin: 1rem;
+                }
+            }
+        }
+        .middle-section{
+            border-top: 2px $color-black solid;
+            border-bottom: 2px $color-black solid;
+            padding: 1rem 0;
+            #middleSection1{
+                grid-area: topLeft;
+            }
+        }
+        .bottom-section{
+            padding-top: 1rem;
+            #bottomSection1{
+                grid-area: topLeft;
+            }
+            
+        }
+    }
+}
+
+.grid{
+    display: grid;
+    grid-template-areas: "topLeft topRight" "bottomLeft bottomRight";
+    grid-row-gap: 1rem;
+}
+.flexRow{
+    display: flex;  
+    flex-flow: row;
+}
+
+@media print{
+    footer{
+        display: none;
 
     }
+
 }

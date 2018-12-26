@@ -14,8 +14,7 @@
 .main-container {
   background-color: #ebebeb;
   font-family: "Ubuntu", sans-serif;
-  color: #09708a;
-  height: 100vh; }
+  color: #09708a; }
   .main-container header {
     background-color: #101113; }
     .main-container header .header-container .header-text {
@@ -57,15 +56,22 @@
         padding: 1rem 0;
         display: flex;
         flex-flow: column wrap; }
-        .main-container .form-container form .textInputs input, .main-container .form-container form .textInputs button {
-          margin: 0.4rem;
+        .main-container .form-container form .textInputs label {
+          color: #ebebeb;
+          text-align: center;
+          width: 90%;
           padding: 0.4rem;
-          font-family: "Ubuntu", sans-serif;
-          border: 1px #09708a solid;
+          margin: 0.4rem auto;
+          font-family: "Ubuntu", sans-serif; }
+        .main-container .form-container form .textInputs input, .main-container .form-container form .textInputs button, .main-container .form-container form .textInputs select {
+          border: 3px transparent solid;
           border-radius: 3px;
           width: 90%;
+          padding: 0.4rem;
           margin: 0.4rem auto;
-          border: 3px transparent solid; }
+          font-family: "Ubuntu", sans-serif; }
+          .main-container .form-container form .textInputs input option:hover, .main-container .form-container form .textInputs button option:hover, .main-container .form-container form .textInputs select option:hover {
+            background-color: #3b444b; }
         .main-container .form-container form .textInputs input:focus {
           border: 3px #3f3f3f solid;
           outline: none; }
@@ -78,13 +84,15 @@
             border: 3px #3f3f3f solid;
             outline: none; }
       .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove {
-        display: none;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.5s linear; }
+        opacity: 0.2;
+        transition: visibility 0s, opacity 0.1s linear; }
+        .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove:hover {
+          cursor: not-allowed; }
       .main-container .form-container form #radioHour:checked ~ .textInputs #salary {
-        display: none;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.5s linear; }
+        opacity: 0.2;
+        transition: visibility 0s, opacity 0.1s linear; }
+        .main-container .form-container form #radioHour:checked ~ .textInputs #salary:hover {
+          cursor: not-allowed; }
       .main-container .form-container form #radioHour:checked ~ .radio-btns #labelMonth {
         background-color: #ebebeb;
         color: #3b444b;
@@ -98,4 +106,44 @@
 
 .result-container {
   height: 100vh;
-  background-color: #ebebeb; }
+  background-color: #ebebeb;
+  padding: 3rem; }
+  .result-container .grid-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto; }
+    @media screen and (min-width: 500px) {
+      .result-container .grid-container {
+        width: 400px;
+        height: 600px;
+        background-color: white;
+        padding: 30px;
+        box-shadow: 10px 10px 35px -9px rgba(0, 0, 0, 0.55); } }
+    .result-container .grid-container .top-section__title h2 {
+      font-size: 25px;
+      text-align: center;
+      margin: 1rem; }
+    .result-container .grid-container .middle-section {
+      border-top: 2px #101113 solid;
+      border-bottom: 2px #101113 solid;
+      padding: 1rem 0; }
+      .result-container .grid-container .middle-section #middleSection1 {
+        grid-area: topLeft; }
+    .result-container .grid-container .bottom-section {
+      padding-top: 1rem; }
+      .result-container .grid-container .bottom-section #bottomSection1 {
+        grid-area: topLeft; }
+
+.grid {
+  display: grid;
+  grid-template-areas: "topLeft topRight" "bottomLeft bottomRight";
+  grid-row-gap: 1rem; }
+
+.flexRow {
+  display: flex;
+  flex-flow: row; }
+
+@media print {
+  footer {
+    display: none; } }

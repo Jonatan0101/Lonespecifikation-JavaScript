@@ -31,14 +31,23 @@
                 </div>
                 <div class="textInputs">
                     
-
-                    <input type="number" min="0" id="salary" placeholder="Månadslön">
+                    
                     <input type="number" min="0" id="hourSalary" placeholder="Timlön" class="hourRemove">
                     <input type="number" min="0" id="amountHour" placeholder="Antal Timmar" class="hourRemove">
+                    <input type="number" min="0" id="salary" placeholder="Månadslön">
                     <input type="text" id="firstName" placeholder="Förnamn">
                     <input type="text" id="lastName" placeholder="Efternamn">
                     <input type="number" id="idNum" placeholder="Anställnings ID">
                     <input type="date" id="date" min="2018" placeholder="Datum">
+                    <label for="skatteTabell">Välj skattetabell</label>
+                    <select name="skatteTabell" id="skatteTabell">
+                        <option selected value="34">Tabell 34 (33%)</option>
+                        <option value="35">Tabell 35 (34.6%)</option>
+                        <option value="36">Tabell 36 (40%)</option>
+                        <option value="gift">Gåva (9%)</option>
+                        <option value="custom">Annan (välj nedan)</option>
+                    </select>
+                    <input type="number" class="hidden" id="customTax" min="0" max="100" placeholder="Fyll i ett nummer (%)">
                     <button type="button" id="submit">Gå vidare</button>
                 </div>
             </form>
@@ -51,7 +60,30 @@
     </div>
     <div class="result-container">
         <div class="grid-container">
-            
+            <div class="top-section">
+                <div class="top-section__title">
+                    <h2>Lönespecifikation</h2>
+                </div>
+                <div class="top-section__name">
+                    <p><span >förnamn</span> <span>efternamn</span></p>
+                </div>
+                <div class="top-section__id">
+                    <p>Anställnings ID <span>123</span></p>
+
+                </div>
+            </div>
+            <div class="middle-section grid">
+                <p id="middleSection1">Månadslön:</p>
+                <p id="middleSection2" >20 000</p>
+                <p id="">Skatt:</p>
+                <p id="middleSection3">6600</p>
+            </div>
+            <div class="bottom-section grid">
+                <p id="bottomSection1">Att utbetala:</p>
+                <p>13400</p>
+                <p>Utbetalningsdag:</p>
+                <p>2018-12-29</p>
+            </div>
         </div>
     </div>
     <footer>
