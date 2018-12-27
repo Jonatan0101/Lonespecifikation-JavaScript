@@ -6,7 +6,7 @@
 }
 
 
-$borderWidth: 3px;
+
 
 .hidden{display: none;}
 .main-container{
@@ -40,12 +40,15 @@ $borderWidth: 3px;
             display: flex;
             flex-direction: column;
             justify-items: flex-start;
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
 
             @media screen and (min-width: 500px) {
-                width: calc(100vh);
+                width: calc(100vw - 20%);
             }
+            @media screen and (min-width: 700px) {
+                width: 50rem;
+            }   
             .radio-btns{
                 display: flex;
                 flex-flow: row wrap;
@@ -130,22 +133,22 @@ $borderWidth: 3px;
             }
         }
     }
-    footer{
-        background-color: $color-white;
-        
-        .footer-container{
-
-            &__links{
-                
-            }
-        }
-    }
+    
 }
 
 .result-container{
     height: 100vh;
     background-color: $color-white;
     padding: 3rem;
+    position: relative;
+    #navBtn{
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
+        border: 1px $color-black solid;
+        height: 3rem;
+        width: 3rem;
+    }
     .grid-container{
         display: flex;
         flex-direction: column;
@@ -185,7 +188,16 @@ $borderWidth: 3px;
         }
     }
 }
+footer{
+        background-color: $color-white;
+        
+        .footer-container{
 
+            &__links{
+                
+            }
+        }
+    }
 .grid{
     display: grid;
     grid-template-areas: "topLeft topRight" "bottomLeft bottomRight";

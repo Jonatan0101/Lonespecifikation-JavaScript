@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#101113">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Lön</title>
 </head>
@@ -42,10 +43,10 @@
                     <label for="skatteTabell">Välj skattetabell</label>
                     <select name="skatteTabell" id="skatteTabell">
                         <option selected value="34">Tabell 34 (33%)</option>
-                        <option value="35">Tabell 35 (34.6%)</option>
-                        <option value="36">Tabell 36 (40%)</option>
-                        <option value="gift">Gåva (9%)</option>
-                        <option value="custom">Annan (välj nedan)</option>
+                        <option value="0.35">Tabell 35 (34.6%)</option>
+                        <option value="0.36">Tabell 36 (40%)</option>
+                        <option value="0.09">Gåva (9%)</option>
+                        <option value="custom">Annan (fyll i nedan)</option>
                     </select>
                     <input type="number" class="hidden" id="customTax" min="0" max="100" placeholder="Fyll i ett nummer (%)">
                     <button type="button" id="submit">Gå vidare</button>
@@ -58,7 +59,8 @@
 
 
     </div>
-    <div class="result-container">
+    <div class="result-container hidden">
+        
         <div class="grid-container">
             <div class="top-section">
                 <div class="top-section__title">
@@ -75,7 +77,7 @@
             <div class="middle-section grid">
                 <p id="middleSection1">Månadslön:</p>
                 <p id="middleSection2" >20 000</p>
-                <p id="">Skatt:</p>
+                <p id="">Skatt: (<span id="taxRate"></span>%)</p>
                 <p id="middleSection3">6600</p>
             </div>
             <div class="bottom-section grid">
@@ -85,14 +87,15 @@
                 <p>2018-12-29</p>
             </div>
         </div>
+        <button type="button" id="navBtn"><i class="material-icons">chevron_left</i></button>
     </div>
     <footer>
-            <div class="footer-container">
-                <div class="footer-container__links">
-                    <li><a href="download/lonekalkylator.exe" download>Ladda ner offline-version (Kan behöva avaktivera antivirus för att köra)</a></li>
-                </div>
+        <div class="footer-container">
+            <div class="footer-container__links">
+                <li><a href="download/lonekalkylator.exe" download>Ladda ner offline-version (Kan behöva avaktivera antivirus för att köra)</a></li>
             </div>
-        </footer>
+        </div>
+    </footer>
     <script src="javascript/app.js"></script>
 </body>
 </html>

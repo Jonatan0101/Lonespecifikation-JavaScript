@@ -25,6 +25,8 @@ const date = document.querySelector('#date');
 // Submitknapp
 const submitBtn = document.querySelector('#submit');
 
+
+const navBtn = document.querySelector('#navBtn');
 // Alla inputs
 const allInputs = document.querySelectorAll('input');
 
@@ -44,6 +46,10 @@ taxTable.addEventListener('click', () => {
 monthBtn.addEventListener("click", clearAllInput());
 hourBtn.addEventListener('click', clearAllInput());
 
+
+navBtn.addEventListener('click', () => {
+    switchPage(false);
+})
 submitBtn.addEventListener('click', () => {
     let valid = firstName.value !="" && lastName.value !="" && idNum.value !="" && date.value !="";
 
@@ -52,14 +58,14 @@ submitBtn.addEventListener('click', () => {
     if(radioMonth.checked){
         if(valid && salaryMonth.value != ""){
             console.log("Månad true")
-            switchPage();
+            switchPage(true);
         } else {
             console.log("Månad falskt")
         }
     } else if(radioHour.checked){
         if(valid && salaryHour.value != "" && hours.value != "") {
             console.log("tim true")
-            switchPage();
+            switchPage(true);
         } else {
             console.log("tim false")
         }
@@ -67,16 +73,24 @@ submitBtn.addEventListener('click', () => {
     
 });
 
-function clearAllInput(){
-    allInputs.forEach((input) => {
-        input.value = "";
-    });
-}
 
-function switchPage(){
-    mainPage.className = 'hidden';
-    resultPage.classList.remove('hidden');
+
+function switchPage(a){
+    if(a){
+        mainPage.classList.add('hidden');
+        resultPage.classList.remove('hidden');
+    } else {
+        mainPage.classList.remove('hidden');
+        resultPage.classList.add('hidden');
+    }
+    clearAllInput();
 }
 function fillPage(a, b, c, d, e, f, g){
 
+}
+
+function clearAllInput() {
+    allInputs.forEach((input) => {
+        input.value = "";
+    });
 }
