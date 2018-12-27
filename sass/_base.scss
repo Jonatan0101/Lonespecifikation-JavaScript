@@ -6,7 +6,9 @@
 }
 
 
-
+body{
+    overflow-x: hidden;
+}
 
 .hidden{display: none;}
 .main-container{
@@ -47,7 +49,7 @@
                 width: calc(100vw - 20%);
             }
             @media screen and (min-width: 700px) {
-                width: 50rem;
+                width: 40rem;
             }   
             .radio-btns{
                 display: flex;
@@ -143,11 +145,19 @@
     position: relative;
     #navBtn{
         position: absolute;
+        flex-flow: row;
         bottom: 10%;
         left: 10%;
-        border: 1px $color-black solid;
-        height: 3rem;
-        width: 3rem;
+        border: $borderWidth $color-black solid;
+        border-radius: 3px;
+        padding: .5rem;
+
+        i{
+            transform: scale(1.4);
+        }
+        &:hover{
+            box-shadow: 5px 5px 8px  rgba(0,0,0,0.55);
+        }
     }
     .grid-container{
         display: flex;
