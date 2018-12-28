@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     transition-duration: .2s; 
+    list-style: none;
+    text-decoration: none;
 }
 
 
@@ -10,7 +12,7 @@ body{
     overflow-x: hidden;
 }
 
-.hidden{display: none;}
+
 .main-container{
     background-color: $color-white;
     font-family: $font-ubuntu;
@@ -42,15 +44,10 @@ body{
             display: flex;
             flex-direction: column;
             justify-items: flex-start;
-            width: 100%;
+            
             margin: 0 auto;
 
-            @media screen and (min-width: 500px) {
-                width: calc(100vw - 20%);
-            }
-            @media screen and (min-width: 700px) {
-                width: 40rem;
-            }   
+            @include responsiveWidth();  
             .radio-btns{
                 display: flex;
                 flex-flow: row wrap;
@@ -199,15 +196,21 @@ body{
     }
 }
 footer{
-        background-color: $color-white;
-        
-        .footer-container{
-
-            &__links{
-                
-            }
+    background-color: $color-white;
+    display: flex;  
+    justify-content: center;
+    height: 10rem;
+    @media print{
+        display: none;
+    }
+    .footer-container{
+        @include responsiveWidth();
+        &__links{
+            
         }
     }
+}
+    
 .grid{
     display: grid;
     grid-template-areas: "topLeft topRight" "bottomLeft bottomRight";
@@ -217,13 +220,13 @@ footer{
     display: flex;  
     flex-flow: row;
 }
+.hidden{display: none;}
+.opacityHide{opacity: 0;}
+.opacityShow{opacity: 1;}
+.blurInput{@include hideInput()}
 
 
 
-@media print{
-    footer{
-        display: none;
 
-    }
 
-}
+

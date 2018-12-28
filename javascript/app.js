@@ -50,7 +50,6 @@ hourBtn.addEventListener('click', clearAllInput);
 // Lägger till flera event listeners för att det garanterat ska fungera oavsett vad som används
 taxTable.addEventListener('change', customTaxInput);
 taxTable.addEventListener('click', customTaxInput);
-body.addEventListener('mouseover', customTaxInput)
 
 
 navBtn.addEventListener('click', () => {
@@ -88,21 +87,27 @@ submitBtn.addEventListener('click', () => {
 function switchPage(a){
     if(a){
         mainPage.classList.add('hidden');
-        resultPage.classList.remove('hidden');
+        resultPage.classList.remove("hidden", "opacityHide");
+        
     } else {
         mainPage.classList.remove('hidden');
         resultPage.classList.add('hidden');
     }
     clearAllInput();
 }
+
+
+
 function fillPage(){
     fullNameH.textContent = `${firstName.value} ${lastName.value}`;
     personIdH.textContent = idNum.value;
     console.log((salaryHour.value * hours.value).toFixed());
+
     salaryTotalH.textContent = radioHour.checked ? 
     `${(salaryHour.value * hours.value).toFixed()}` : salaryMonth.value;
 
-    taxRateH.textContent = requireCustom ? customTax.value.toFixed(3) : taxTable.options[taxTable.selectedIndex].value;
+    taxRateH.textContent = requireCustom ? 
+    customTax.value.toFixed(3) : taxTable.options[taxTable.selectedIndex].value;
 
     taxMoneyH.textContent = (taxRateH.textContent / 100 * salaryTotalH.textContent).toFixed();
 
@@ -117,7 +122,7 @@ function customTaxInput(){
         customTax.className = ''
         requireCustom = true;
     } else {
-        customTax.className = 'hidden';
+        customTax.className = 'blurInput';
         requireCustom = false;
     }
 }

@@ -25,7 +25,7 @@
                 <input type="radio" name="radio" id="radioMonth" class="hidden">
 
                 <div class="radio-btns">
-                    <label for="radioMonth" id="labelMonth">Månadslön</label>
+                    <label for="radioMonth" checked id="labelMonth">Månadslön</label>
                     
                     <label for="radioHour" id="labelHour">Timlön</label>
                     
@@ -48,7 +48,7 @@
                         <option value="9">Gåva (9%)</option>
                         <option value="custom">Annan (fyll i nedan)</option>
                     </select>
-                    <input type="number" class="hidden" id="customTax" min="0" max="100" placeholder="Fyll i ett nummer (%)">
+                    <input type="number" class="blurInput" id="customTax" min="0" max="100" placeholder="Fyll i ett nummer (%)">
 
                     
                     <button type="button" id="submit">Gå vidare</button>
@@ -61,7 +61,7 @@
 
 
     </div>
-    <div class="result-container hidden">
+    <div class="result-container hidden opacityHide">
         
         <div class="grid-container">
             <div class="top-section">
@@ -91,12 +91,16 @@
         </div>
         <button type="button" id="navBtn"><i class="material-icons">chevron_left</i></button>
     </div>
+
+
     <footer>
+
         <div class="footer-container">
             <div class="footer-container__links">
                 <li><a href="download/lonekalkylator.exe" download>Ladda ner offline-version (Kan behöva avaktivera antivirus för att köra)</a></li>
             </div>
         </div>
+
     </footer>
 
 

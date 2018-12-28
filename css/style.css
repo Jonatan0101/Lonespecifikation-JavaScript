@@ -6,13 +6,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition-duration: .2s; }
+  transition-duration: .2s;
+  list-style: none;
+  text-decoration: none; }
 
 body {
   overflow-x: hidden; }
-
-.hidden {
-  display: none; }
 
 .main-container {
   background-color: #ebebeb;
@@ -35,8 +34,8 @@ body {
       display: flex;
       flex-direction: column;
       justify-items: flex-start;
-      width: 100%;
-      margin: 0 auto; }
+      margin: 0 auto;
+      width: 100%; }
       @media screen and (min-width: 500px) {
         .main-container .form-container form {
           width: calc(100vw - 20%); } }
@@ -91,11 +90,13 @@ body {
             outline: none; }
       .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove {
         opacity: 0.2;
+        filter: blur(5px);
         transition: visibility 0s, opacity 0.1s linear; }
         .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove:hover {
           cursor: not-allowed; }
       .main-container .form-container form #radioHour:checked ~ .textInputs #salary {
         opacity: 0.2;
+        filter: blur(5px);
         transition: visibility 0s, opacity 0.1s linear; }
         .main-container .form-container form #radioHour:checked ~ .textInputs #salary:hover {
           cursor: not-allowed; }
@@ -153,7 +154,21 @@ body {
         grid-area: topLeft; }
 
 footer {
-  background-color: #ebebeb; }
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+  height: 10rem; }
+  @media print {
+    footer {
+      display: none; } }
+  footer .footer-container {
+    width: 100%; }
+    @media screen and (min-width: 500px) {
+      footer .footer-container {
+        width: calc(100vw - 20%); } }
+    @media screen and (min-width: 700px) {
+      footer .footer-container {
+        width: 40rem; } }
 
 .grid {
   display: grid;
@@ -164,6 +179,18 @@ footer {
   display: flex;
   flex-flow: row; }
 
-@media print {
-  footer {
-    display: none; } }
+.hidden {
+  display: none; }
+
+.opacityHide {
+  opacity: 0; }
+
+.opacityShow {
+  opacity: 1; }
+
+.blurInput {
+  opacity: 0.2;
+  filter: blur(5px);
+  transition: visibility 0s, opacity 0.1s linear; }
+  .blurInput:hover {
+    cursor: not-allowed; }

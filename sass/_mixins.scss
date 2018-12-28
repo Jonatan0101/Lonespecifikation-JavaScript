@@ -6,6 +6,7 @@
 
 @mixin hideInput {
     opacity: 0.2;
+    filter: blur(5px);
     transition: visibility 0s, opacity 0.1s linear;
     &:hover{
         cursor: not-allowed;
@@ -16,4 +17,14 @@
     padding: 0.4rem;
     margin: 0.4rem auto;
     font-family: $font-ubuntu;
+}
+
+@mixin responsiveWidth{
+    width: 100%;
+    @media screen and (min-width: 500px) {
+        width: calc(100vw - 20%);
+    }
+    @media screen and (min-width: 700px) {
+        width: 40rem;
+    } 
 }
