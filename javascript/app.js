@@ -47,7 +47,7 @@ const msgText = document.querySelector('#msgText');
 const msgCont = document.querySelector('#msgCont');
 
 var requireCustom = false;
-
+var interval = 2500;
 
 monthBtn.addEventListener('click', clearAllInput);
 hourBtn.addEventListener('click', clearAllInput);
@@ -82,7 +82,7 @@ submitBtn.addEventListener('click', () => {
             switchPage(true);
             
         } else {
-            displayMessage('Fyll i alla fält');
+            displayMessage('Fyll i alla fält!');
             console.log("Månad falskt")
         }
     } else if(radioHour.checked){
@@ -91,6 +91,7 @@ submitBtn.addEventListener('click', () => {
             fillPage();
             switchPage(true);
         } else {
+            displayMessage('Fyll i alla fält!');
             console.log("tim false")
         }
     } else {
@@ -146,7 +147,15 @@ function customTaxInput(){
 function displayMessage(msg){
     msgCont.style.transform =  'translate(-50%, 0) scale(1)';
     msgText.textContent = msg;
-    setInterval(() => { msgCont.style.transform = 'translate(-50%, -100%) scale(0.4)';}, 2000)
+
+    setInterval(() => {
+        msgCont.style.transform = 'translate(-50%, -100%) scale(0.4)';
+        msgShow = false;
+    },
+    interval)
+
+
+    
 };
 
 function clearAllInput() {
