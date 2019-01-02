@@ -108,6 +108,24 @@ body {
         background-color: #ebebeb;
         color: #3b444b;
         border-radius: 3px; }
+  .main-container .message {
+    width: 100%;
+    background-color: #cc0000;
+    position: absolute;
+    transform: translate(-50%, -100%) scale(0.4);
+    top: 0;
+    padding: 1.5rem;
+    left: calc(100vw/2); }
+    @media screen and (min-width: 500px) {
+      .main-container .message {
+        width: calc(100vw - 20%); } }
+    @media screen and (min-width: 700px) {
+      .main-container .message {
+        width: 40rem; } }
+    .main-container .message .message-content p {
+      text-align: center;
+      font-size: 25px;
+      color: #ebebeb; }
 
 .result-container {
   height: 100vh;

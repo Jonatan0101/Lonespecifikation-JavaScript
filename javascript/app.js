@@ -41,6 +41,11 @@ const taxMoneyH = document.querySelector('#middleSection3');
 const salaryOutH = document.querySelector('#salaryOut');
 const dateH = document.querySelector('#dateH');
 
+
+// Message
+const msgText = document.querySelector('#msgText');
+const msgCont = document.querySelector('#msgCont');
+
 var requireCustom = false;
 
 
@@ -57,9 +62,19 @@ navBtn.addEventListener('click', () => {
 })
 submitBtn.addEventListener('click', () => {
     let valid = firstName.value !="" && lastName.value !="" && idNum.value !="" && date.value !="";
+    console.log(valid && salaryMonth.value != "");
 
-    valid = requireCustom && (customTax.value === "" || customTax.value >= 100)? false : true;
+    // valid = requireCustom && (customTax.value === "" || customTax.value >= 100) ? false : true;
 
+    if (requireCustom && (customTax.value === "" || customTax.value >= 100)){
+        valid = false;
+    } else if(!requireCustom && !valid){
+        valid = false;
+    } else {
+        displayMessage('????????????????????????????')
+    }
+
+    console.log(valid && salaryMonth.value != "");
     if(radioMonth.checked){
         if(valid && salaryMonth.value != ""){
             console.log("Månad true")
@@ -67,6 +82,7 @@ submitBtn.addEventListener('click', () => {
             switchPage(true);
             
         } else {
+            displayMessage('Fyll i alla fält');
             console.log("Månad falskt")
         }
     } else if(radioHour.checked){
@@ -107,7 +123,7 @@ function fillPage(){
     `${(salaryHour.value * hours.value).toFixed()}` : salaryMonth.value;
 
     taxRateH.textContent = requireCustom ? 
-    customTax.value.toFixed(3) : taxTable.options[taxTable.selectedIndex].value;
+    Number.parseFloat(customTax.value).toFixed(2) : taxTable.options[taxTable.selectedIndex].value;
 
     taxMoneyH.textContent = (taxRateH.textContent / 100 * salaryTotalH.textContent).toFixed();
 
@@ -119,13 +135,19 @@ function fillPage(){
 
 function customTaxInput(){
     if (taxTable.options[taxTable.selectedIndex].value === 'custom') {
-        customTax.className = ''
+        customTax.className = '';
         requireCustom = true;
     } else {
         customTax.className = 'blurInput';
         requireCustom = false;
     }
 }
+
+function displayMessage(msg){
+    msgCont.style.transform =  'translate(-50%, 0) scale(1)';
+    msgText.textContent = msg;
+    setInterval(() => { msgCont.style.transform = 'translate(-50%, -100%) scale(0.4)';}, 2000)
+};
 
 function clearAllInput() {
     allInputs.forEach((input) => {
