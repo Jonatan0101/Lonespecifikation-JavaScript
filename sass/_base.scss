@@ -137,7 +137,7 @@ body{
     @include responsiveWidth;
     background-color: $warning-red;
     position: fixed;
-    transform: translate(-50%, -100%) scale(0.4);
+    // transform: translate(-50%, -100%) scale(0.4);
     top: 0;
     padding: 1.5rem;
     left: calc(100vw/2);
@@ -151,6 +151,13 @@ body{
     }
 }
     
+}
+
+.messageHiding{
+    transform: translate(-50%, -100%) scale(0.4);
+}
+.messageShowing{
+    transform: translate(-50%, 0%) scale(1);
 }
 
 .result-container{
@@ -224,13 +231,41 @@ footer{
     .footer-container{
         @include responsiveWidth();
         &__links{
-            
+            margin: 1rem 0;
+            li{
+                padding: .3rem;
+                a{
+                    font-family: $font-ubuntu;
+                    color: $color-light;
+                    text-align: center;
+
+                    &:hover{
+                        color: $color-black;
+                    }
+                }
+
+            }
         }
     }
 }
 
-
     
+#download-main{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .grid{
     display: grid;
     grid-template-areas: "topLeft topRight" "bottomLeft bottomRight";

@@ -27,7 +27,6 @@ const date = document.querySelector('#date');
 // Submitknapp
 const submitBtn = document.querySelector('#submit');
 
-
 const navBtn = document.querySelector('#navBtn');
 // Alla inputs
 const allInputs = document.querySelectorAll('input');
@@ -47,7 +46,6 @@ const msgText = document.querySelector('#msgText');
 const msgCont = document.querySelector('#msgCont');
 
 var requireCustom = false;
-var interval = 2500;
 
 monthBtn.addEventListener('click', clearAllInput);
 hourBtn.addEventListener('click', clearAllInput);
@@ -60,27 +58,22 @@ taxTable.addEventListener('click', customTaxInput);
 navBtn.addEventListener('click', () => {
     switchPage(false);
 })
+
+navBtn.addEventListener("click", () => switchPage(false));
+
+
 submitBtn.addEventListener('click', () => {
-    let valid = firstName.value !="" && lastName.value !="" && idNum.value !="" && date.value !="";
-    console.log(valid && salaryMonth.value != "");
 
-    // valid = requireCustom && (customTax.value === "" || customTax.value >= 100) ? false : true;
-
-    if (requireCustom && (customTax.value === "" || customTax.value >= 100)){
-        valid = false;
-    } else if(!requireCustom && !valid){
-        valid = false;
-    } else {
-        displayMessage('????????????????????????????')
-    }
+    let valid = checkIfValid();
 
     console.log(valid && salaryMonth.value != "");
+
+    // Ser till så att rätt fält är ifyllda beroende på vad man valt
     if(radioMonth.checked){
         if(valid && salaryMonth.value != ""){
             console.log("Månad true")
             fillPage();
             switchPage(true);
-            
         } else {
             displayMessage('Fyll i alla fält!');
             console.log("Månad falskt")
@@ -97,10 +90,9 @@ submitBtn.addEventListener('click', () => {
     } else {
         console.log("Something is very wrong :/")
     }
-    
 });
 
-
+// Byter sida till resultat om true, annars går man tillbaks
 function switchPage(a){
     if(a){
         mainPage.classList.add('hidden');
@@ -114,7 +106,7 @@ function switchPage(a){
 }
 
 
-
+//Fyller resultatsidan med informationen man skrivit
 function fillPage(){
     fullNameH.textContent = `${firstName.value} ${lastName.value}`;
     personIdH.textContent = idNum.value;
@@ -134,6 +126,7 @@ function fillPage(){
     console.log(date.value);
 }
 
+// Hanterar fältet där man väljer skattetabell
 function customTaxInput(){
     if (taxTable.options[taxTable.selectedIndex].value === 'custom') {
         customTax.className = '';
@@ -144,22 +137,152 @@ function customTaxInput(){
     }
 }
 
-function displayMessage(msg){
-    msgCont.style.transform =  'translate(-50%, 0) scale(1)';
+// Visar ett meddelande
+// function displayMessage(msg){
+//     msgCont.style.transform =  'translate(-50%, 0) scale(1)';
+//     msgText.textContent = msg;
+
+//     setInterval(() => {
+//         msgCont.style.transform = 'translate(-50%, -100%) scale(0.4)';
+//         msgShow = false;
+//     },
+//     interval)
+    
+// };
+
+function displayMessage(msg) {
+    msgCont.classList.toggle('messageHiding');
+    msgCont.classList.toggle("messageShowing");
     msgText.textContent = msg;
 
-    setInterval(() => {
-        msgCont.style.transform = 'translate(-50%, -100%) scale(0.4)';
-        msgShow = false;
-    },
-    interval)
-
-
-    
+    setTimeout(() => {
+        msgCont.classList.toggle("messageHiding");
+        msgCont.classList.toggle("messageShowing");
+    }, 2500)
 };
 
+
+// Kollar om fälten är ifyllda
+function checkIfValid(){
+    let valid = firstName.value != "" && lastName.value != "" && idNum.value != "" && date.value != "";
+    console.log(valid && salaryMonth.value != "");
+
+    if (requireCustom && (customTax.value === "" || customTax.value >= 100)) {
+        valid = false;
+    } else if (!requireCustom && !valid) {
+        valid = false;
+    } else {
+        displayMessage('????????????????????????????')
+    }
+
+    return valid;
+}
+
+// Tömmer alla inputs
 function clearAllInput() {
     allInputs.forEach((input) => {
         input.value = "";
     });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Uppmuntrar folk till att använda offline-versionen också
+document.onload = autoDownload();
+function autoDownload(){
+    if (localStorage.getItem("noDownload") === null) {
+        document.querySelector("#downloadLink").click();
+    }
 }

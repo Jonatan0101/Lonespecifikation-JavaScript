@@ -112,7 +112,6 @@ body {
     width: 100%;
     background-color: #cc0000;
     position: fixed;
-    transform: translate(-50%, -100%) scale(0.4);
     top: 0;
     padding: 1.5rem;
     left: calc(100vw/2); }
@@ -126,6 +125,12 @@ body {
       text-align: center;
       font-size: 25px;
       color: #ebebeb; }
+
+.messageHiding {
+  transform: translate(-50%, -100%) scale(0.4); }
+
+.messageShowing {
+  transform: translate(-50%, 0%) scale(1); }
 
 .result-container {
   height: 100vh;
@@ -187,6 +192,16 @@ footer {
     @media screen and (min-width: 700px) {
       footer .footer-container {
         width: 40rem; } }
+    footer .footer-container__links {
+      margin: 1rem 0; }
+      footer .footer-container__links li {
+        padding: .3rem; }
+        footer .footer-container__links li a {
+          font-family: "Ubuntu", sans-serif;
+          color: #09708a;
+          text-align: center; }
+          footer .footer-container__links li a:hover {
+            color: #101113; }
 
 .grid {
   display: grid;
