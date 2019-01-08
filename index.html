@@ -25,7 +25,7 @@
                 <input type="radio" name="radio" id="radioMonth" class="hidden">
 
                 <div class="radio-btns">
-                    <label for="radioMonth" checked id="labelMonth">Månadslön</label>
+                    <label for="radioMonth" id="labelMonth">Månadslön</label>
                     
                     <label for="radioHour" id="labelHour">Timlön</label>
                     
@@ -39,8 +39,8 @@
                     <input type="text" id="firstName" placeholder="Förnamn">
                     <input type="text" id="lastName" placeholder="Efternamn">
                     <input type="number" id="idNum" placeholder="Anställnings ID">
-                    <input type="date" id="date" min="2018-12-27" placeholder="Datum">
-                    <label for="skatteTabell">Välj skattetabell</label>
+                    <input type="date" id="date" min="2018-12-27">
+                    <label>Välj skattetabell</label>
                     <select name="taxTable" id="taxTable">
                         <option selected value="34">Tabell 34 (33%)</option>
                         <option value="34.6">Tabell 35 (34.6%)</option>
@@ -85,7 +85,7 @@
             <div class="middle-section grid">
                 <p id="middleSection1">Månadslön:</p>
                 <p id="middleSection2" >---</p>
-                <p id="">Skatt: (<span id="taxRate"></span>%)</p>
+                <p>Skatt: (<span id="taxRate"></span>%)</p>
                 <p id="middleSection3">---</p>
             </div>
             <div class="bottom-section grid">
@@ -105,8 +105,8 @@
 
         <div class="footer-container">
             <div class="footer-container__links">
-                <li><a id="downloadLink" href="download/lonekalkylator.exe" download>Ladda ner offline-version</a></li>
-                <li><a href="#">Gå tillbaka till företagets hemsida</a></li>
+                <a id="downloadLink" href="download/lonekalkylator.exe" download>Ladda ner offline-version</a>
+                <a href="#">Gå tillbaka till företagets hemsida</a>
             </div>
         </div>
 

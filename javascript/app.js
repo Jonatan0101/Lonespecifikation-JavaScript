@@ -137,19 +137,6 @@ function customTaxInput(){
     }
 }
 
-// Visar ett meddelande
-// function displayMessage(msg){
-//     msgCont.style.transform =  'translate(-50%, 0) scale(1)';
-//     msgText.textContent = msg;
-
-//     setInterval(() => {
-//         msgCont.style.transform = 'translate(-50%, -100%) scale(0.4)';
-//         msgShow = false;
-//     },
-//     interval)
-    
-// };
-
 function displayMessage(msg) {
     msgCont.classList.toggle('messageHiding');
     msgCont.classList.toggle("messageShowing");
@@ -178,7 +165,7 @@ function checkIfValid(){
     return valid;
 }
 
-// Tömmer alla inputs
+// Tömmer alla inputs, används mycket
 function clearAllInput() {
     allInputs.forEach((input) => {
         input.value = "";

@@ -193,15 +193,15 @@ footer {
       footer .footer-container {
         width: 40rem; } }
     footer .footer-container__links {
-      margin: 1rem 0; }
-      footer .footer-container__links li {
+      margin: 1rem 0;
+      display: flex;
+      flex-flow: column; }
+      footer .footer-container__links a {
+        font-family: "Ubuntu", sans-serif;
+        color: #09708a;
         padding: .3rem; }
-        footer .footer-container__links li a {
-          font-family: "Ubuntu", sans-serif;
-          color: #09708a;
-          text-align: center; }
-          footer .footer-container__links li a:hover {
-            color: #101113; }
+        footer .footer-container__links a:hover {
+          color: #101113; }
 
 .grid {
   display: grid;
