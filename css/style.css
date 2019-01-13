@@ -10,9 +10,6 @@
   list-style: none;
   text-decoration: none; }
 
-body {
-  overflow-x: hidden; }
-
 .main-container {
   background-color: #ebebeb;
   font-family: "Ubuntu", sans-serif;
@@ -38,7 +35,7 @@ body {
       width: 100%; }
       @media screen and (min-width: 500px) {
         .main-container .form-container form {
-          width: calc(100vw - 20%); } }
+          width: 80vw; } }
       @media screen and (min-width: 700px) {
         .main-container .form-container form {
           width: 40rem; } }
@@ -90,13 +87,13 @@ body {
             outline: none; }
       .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove {
         opacity: 0.2;
-        filter: blur(5px);
+        filter: blur(25px);
         transition: visibility 0s, opacity 0.1s linear; }
         .main-container .form-container form #radioMonth:checked ~ .textInputs .hourRemove:hover {
           cursor: not-allowed; }
       .main-container .form-container form #radioHour:checked ~ .textInputs #salary {
         opacity: 0.2;
-        filter: blur(5px);
+        filter: blur(25px);
         transition: visibility 0s, opacity 0.1s linear; }
         .main-container .form-container form #radioHour:checked ~ .textInputs #salary:hover {
           cursor: not-allowed; }
@@ -117,7 +114,7 @@ body {
     left: calc(100vw/2); }
     @media screen and (min-width: 500px) {
       .main-container .message {
-        width: calc(100vw - 20%); } }
+        width: 80vw; } }
     @media screen and (min-width: 700px) {
       .main-container .message {
         width: 40rem; } }
@@ -188,7 +185,7 @@ footer {
     width: 100%; }
     @media screen and (min-width: 500px) {
       footer .footer-container {
-        width: calc(100vw - 20%); } }
+        width: 80vw; } }
     @media screen and (min-width: 700px) {
       footer .footer-container {
         width: 40rem; } }
@@ -223,7 +220,7 @@ footer {
 
 .blurInput {
   opacity: 0.2;
-  filter: blur(5px);
+  filter: blur(25px);
   transition: visibility 0s, opacity 0.1s linear; }
   .blurInput:hover {
     cursor: not-allowed; }

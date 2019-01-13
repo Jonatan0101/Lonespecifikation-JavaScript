@@ -71,12 +71,10 @@ submitBtn.addEventListener('click', () => {
     // Ser till så att rätt fält är ifyllda beroende på vad man valt
     if(radioMonth.checked){
         if(valid && salaryMonth.value != ""){
-            console.log("Månad true")
             fillPage();
             switchPage(true);
         } else {
             displayMessage('Fyll i alla fält!');
-            console.log("Månad falskt")
         }
     } else if(radioHour.checked){
         if(valid && salaryHour.value != "" && hours.value != "") {
@@ -85,7 +83,6 @@ submitBtn.addEventListener('click', () => {
             switchPage(true);
         } else {
             displayMessage('Fyll i alla fält!');
-            console.log("tim false")
         }
     } else {
         console.log("Something is very wrong :/")
@@ -110,11 +107,12 @@ function switchPage(a){
 function fillPage(){
     fullNameH.textContent = `${firstName.value} ${lastName.value}`;
     personIdH.textContent = idNum.value;
-    console.log((salaryHour.value * hours.value).toFixed());
 
+    // Kollar vilket menyval man gjort för att veta vilken text som ska fyllas i
     salaryTotalH.textContent = radioHour.checked ? 
     `${(salaryHour.value * hours.value).toFixed()}` : salaryMonth.value;
 
+    // Kollar om man skrivit in en procentsats själv och använder isåfall den.
     taxRateH.textContent = requireCustom ? 
     Number.parseFloat(customTax.value).toFixed(2) : taxTable.options[taxTable.selectedIndex].value;
 
@@ -123,10 +121,9 @@ function fillPage(){
     salaryOutH.textContent = salaryTotalH.textContent - taxMoneyH.textContent;
 
     dateH.textContent = date.value;
-    console.log(date.value);
 }
 
-// Hanterar fältet där man väljer skattetabell
+// Hanterar fältet där man väljer skattetabell så att den göms och tas fram
 function customTaxInput(){
     if (taxTable.options[taxTable.selectedIndex].value === 'custom') {
         customTax.className = '';
@@ -149,11 +146,13 @@ function displayMessage(msg) {
 };
 
 
-// Kollar om fälten är ifyllda
+// Kollar om man fyllt i alla nödvändiga fält utefter vilket menyval man gjort
 function checkIfValid(){
+    // Sätter först en variabel till allt som krävs oavsett man valt, är den false så kommer den inte fortsätta
     let valid = firstName.value != "" && lastName.value != "" && idNum.value != "" && date.value != "";
     console.log(valid && salaryMonth.value != "");
 
+    //Kollar om menyvalsfälten är ifyllda, och ändrar isåafll valid till false för att ge ett meddelande och inte gå vidare
     if (requireCustom && (customTax.value === "" || customTax.value >= 100)) {
         valid = false;
     } else if (!requireCustom && !valid) {
@@ -266,7 +265,7 @@ function clearAllInput() {
 
 
 
-// Uppmuntrar folk till att använda offline-versionen också
+// Uppmuntrar folk till att använda offline-versionen också (men det är frivilligt eftersom man kan stäng av funktionen själv efter en gång)
 document.onload = autoDownload();
 function autoDownload(){
     if (localStorage.getItem("noDownload") === null) {

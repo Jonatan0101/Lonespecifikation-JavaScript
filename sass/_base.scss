@@ -1,3 +1,4 @@
+// Tar bort saker man inte vill ha och lägger
 *{
     margin: 0;
     padding: 0;
@@ -6,12 +7,6 @@
     list-style: none;
     text-decoration: none;
 }
-
-
-body{
-    overflow-x: hidden;
-}
-
 
 .main-container{
     background-color: $color-white;
@@ -96,6 +91,7 @@ body{
                         }
                     }
                 }
+                // Ändrar förg på bordern om man skriver i fältet
                 input:focus{
                     border: $borderWidth $color-green solid;
                     outline: none;
@@ -117,7 +113,7 @@ body{
             }
 
 
-
+            // Checkbox hack
             #radioMonth:checked ~ .textInputs .hourRemove{
                 @include hideInput();
             }

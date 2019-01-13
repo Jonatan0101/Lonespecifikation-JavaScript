@@ -1,12 +1,13 @@
+//Används för att ändra menyn så man vet vart man är
 @mixin activeLink {
     background-color: $color-white;
     color: $color-main;
     border-radius: 3px;
 }
-
+//Används för att ändra menyn så man vet vart man är
 @mixin hideInput {
     opacity: 0.2;
-    filter: blur(5px);
+    filter: blur(25px);
     transition: visibility 0s, opacity 0.1s linear;
     &:hover{
         cursor: not-allowed;
@@ -19,10 +20,11 @@
     font-family: $font-ubuntu;
 }
 
+// En mixin som ger en bra bredd till saker, till exempel meddelandet och footern
 @mixin responsiveWidth{
     width: 100%;
     @media screen and (min-width: 500px) {
-        width: calc(100vw - 20%);
+        width: 80vw;
     }
     @media screen and (min-width: 700px) {
         width: 40rem;
