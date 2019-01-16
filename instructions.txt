@@ -1,0 +1,12 @@
+Manual för användning av lönekalkylatorn.
+
+1: Välj typ av lön, månad eller timlön
+2: Fyll fälten med korrekt information
+3: Tryck på Gå vidare
+4: Läs Lönespecifikationen.
+
+Obs! Vill man stänga av automatisk nedladdning av offline-version kopiera detta och klista in i konsolen:
+
+localStorage.setItem("noDownload", true);
+
+Det kommer att förhindra nedladdning så länge man inte tömmer webbläsar-data, då måste processen upprepas. 
